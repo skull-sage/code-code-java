@@ -23,12 +23,13 @@ public class OverlapRemoval
         while(itr.hasNext())
         {
             Interval current = itr.next();
-            if(high > current.low)
-            {
+            if(high > current.low) {
                 toRemove++;
                 if(high > current.high)
                     high = current.high;
-            }else high = current.high;
+            }   else {
+                high = current.high;
+            }
 
 
         }

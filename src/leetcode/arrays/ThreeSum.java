@@ -6,27 +6,7 @@ import java.util.function.Consumer;
 public class ThreeSum {
     static class Solution
     {
-        public void calcSum(int[] nums, int idx, int sum, List<Integer> triplet, Consumer<List<Integer>> acceptor)
-        {
-            if(triplet.size() == 3)
-            {
-                if(sum == 0)
-                    acceptor.accept(new ArrayList<>(triplet));
-
-                return;
-            }
-
-            if(idx >= nums.length)
-                return;
-
-
-
-            triplet.add(nums[idx]);
-            calcSum(nums, idx+1, sum+nums[idx], triplet, acceptor);
-            triplet.remove(triplet.size()-1);
-            calcSum(nums, idx+1, sum, triplet, acceptor);
-
-        }
+        
 
         public List<List<Integer>> threeSum(int[] nums) {
             List<List<Integer>> tripletList = new ArrayList<>();
@@ -53,12 +33,16 @@ public class ThreeSum {
                     if(sum == 0)
                     {
                         tripletList.add(Arrays.asList(a, b, c));
+                        break
                     }
 
-                    if(j > idx + 1 && b == nums[j - 1])
-                        continue;
-                    if(k < nums.length - 1 && c == nums[k + 1])
-                        continue;
+                    while (sum < 0 && b == nums[j] && j < k) {
+                        j++;
+                    }
+                    
+                    while (sum > 0 && c == nums[k] && j < k){
+                        k--;
+                    }
 
 
                 }
