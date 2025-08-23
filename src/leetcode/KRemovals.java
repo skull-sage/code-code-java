@@ -25,11 +25,11 @@ public class KRemovals
 
             int delCount = 0;
             int sumCount = 0;
-            for(Integer count: countList)
+            for(Integer c: countList)
             {
-                if(sumCount + count <= k)
+                if(sumCount + c <= k)
                 {
-                    sumCount += count;
+                    sumCount += c;
                     delCount++;
                 }
                 else break;
