@@ -33,7 +33,7 @@ public class ThreeSum {
                     if(sum == 0)
                     {
                         tripletList.add(Arrays.asList(a, b, c));
-                        break
+                        break;
                     }
 
                     while (sum < 0 && b == nums[j] && j < k) {
